@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for arch in amd64 arm32v7 arm64v8
+do
+  echo "Building $IMAGE_NAME-$arch"
+  docker build --build-arg FROM_ARCH=$arch --file $DOCKERFILE_PATH --tag $IMAGE_NAME-$arch .
+done
