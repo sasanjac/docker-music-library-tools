@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+
+cd /music_library_tools
+poetry run start
