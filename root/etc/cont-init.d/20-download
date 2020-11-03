@@ -7,7 +7,6 @@ if [ ! -f "/music_library_tools/music_library_tools/daemons.py" ]; then
     echo "[cont-init.d] First start, cloning repo"
     git clone  https://github.com/sasanjac/music-library-tools /music_library_tools
     cd /music_library_tools
-    poetry install --no-dev
 else
     cd /music_library_tools
     localv=$(git rev-parse HEAD)
@@ -16,7 +15,8 @@ else
         echo -e "[cont-init.d] Latest Version. No update needed"
     else
         echo -e "[cont-init.d] Newer Version. Updating"
-        git pull
-        poetry install --no-dev
+        git fetch
+        git reset --hard origin/main
+        touch /music_library_tools/updated
     fi
 fi

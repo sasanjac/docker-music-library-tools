@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bash
+
+if [ -f "/music_library_tools/updated" ]; then
+    echo "[cont-init.d] Installing"
+    cd /music_library_tools
+    poetry install --no-dev
+    rm /music_library_tools/updated
+    echo "[cont-init.d] Installation done"
+fi

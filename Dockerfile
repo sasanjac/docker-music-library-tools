@@ -12,6 +12,9 @@ RUN tar zxvf qemu-3.0.0+resin-aarch64.tar.gz --strip-components 1
 
 FROM lsiobase/alpine:$FROM_ARCH-3.12
 
+LABEL version="0.0.1"
+LABEL repository="https://github.com/sasanjac/docker-music-library-tools"
+
 # Add QEMU
 COPY --from=builder qemu-arm-static /usr/bin
 COPY --from=builder qemu-aarch64-static /usr/bin
