@@ -6,7 +6,7 @@ echo "[cont-init.d] Downloading and unpacking"
 if [ ! -f "/music_library_tools/music_library_tools/daemons.py" ]; then
     echo "[cont-init.d] First start, cloning repo"
     git clone  https://github.com/sasanjac/music-library-tools /music_library_tools
-    cd /music_library_tools
+    touch /music_library_tools/updated
 else
     cd /music_library_tools
     localv=$(git rev-parse HEAD)
