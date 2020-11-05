@@ -1,4 +1,8 @@
 #!/usr/bin/with-contenv sh
 
+UMASK_SET=${UMASK_SET:-022}
+umask "$UMASK_SET"
+
 cd /music_library_tools
-su abc -c "poetry run start"
+
+exec s6-setuidgid abc poetry run start
