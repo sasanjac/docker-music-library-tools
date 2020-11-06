@@ -2,8 +2,7 @@
 
 if [ -f "/music_library_tools/updated" ]; then
     echo "[cont-init.d] Installing"
-    cd /music_library_tools
-    poetry install --no-dev
+    python3 -m pip install -U --quiet --disable-pip-version-check /music_library_tools
     rm /music_library_tools/updated
     echo "[cont-init.d] Installation done"
 fi

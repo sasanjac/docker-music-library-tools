@@ -20,25 +20,16 @@ COPY --from=builder qemu-arm-static /usr/bin
 COPY --from=builder qemu-aarch64-static /usr/bin
 
 RUN \
- echo "**** install build packages ****" && \
- apk add --no-cache --virtual=build-dependencies --update \
-	gcc \
-	build-base \
-	python3-dev \
-	libffi-dev \
-	openssl-dev \
-	git && \
- echo "**** install packages ****" && \
- apk add --no-cache --update python3 && \
- python3 -m ensurepip && \
- pip3 install --upgrade pip && \
- pip3 install poetry && \
- echo "**** clean up ****" && \
- rm -rf \
-	/root/.cache \
-	/tmp/*
-
-RUN poetry config virtualenvs.in-project true
+	echo "**** install packages ****" && \
+	apk add --no-cache \
+		git \
+		python3 && \
+	python3 -m ensurepip && \
+    python3 -m pip install --no-cache-dir --upgrade pip && \
+	echo "**** clean up ****" && \
+	rm -rf \
+		/root/.cache \
+		/tmp/*
 
 # add local files
 COPY root/ /

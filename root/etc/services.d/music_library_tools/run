@@ -3,6 +3,4 @@
 UMASK_SET=${UMASK_SET:-022}
 umask "$UMASK_SET"
 
-cd /music_library_tools
-
-exec s6-setuidgid abc poetry run start
+exec s6-setuidgid abc python3 /music_library_tools/music_library_tools/daemons.py
