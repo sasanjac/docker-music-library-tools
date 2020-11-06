@@ -6,5 +6,5 @@ usermod -d /music_library_tools abc
 # permissions
 echo "[cont-init.d] Setting permissions this may take some time"
 
-chown -R abc:abc \
- /music_library_tools/
+chown -R abc:abc /music_library_tools/
+chown -R abc:abc /.config/
