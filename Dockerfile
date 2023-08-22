@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.17
+FROM lsiobase/alpine:3.18
 
 LABEL version="0.1.0"
 LABEL repository="https://github.com/sasanjac/docker-music-library-tools"
