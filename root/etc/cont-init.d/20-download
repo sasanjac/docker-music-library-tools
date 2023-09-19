@@ -3,6 +3,8 @@
 # download and unpack
 echo "[cont-init.d] Downloading and unpacking"
 
+git config --global --add safe.directory /music_library_tools
+
 if [ ! -f "/music_library_tools/music_library_tools/daemons.py" ]; then
     echo "[cont-init.d] First start, cloning repo"
     git clone  https://github.com/sasanjac/music-library-tools /music_library_tools
